@@ -17,14 +17,14 @@ In embedded programming, pointers are essential for:
 ```
 .
 ├── README.md
+├── LICENSE
+├── Makefile
 ├── src/
 │   ├── 01_pointer_basics.c
 │   ├── 02_memory_mapped_io.c
 │   ├── 03_pointer_arithmetic.c
 │   ├── 04_function_pointers.c
 │   └── 05_volatile_and_const.c
-├── examples/
-│   └── register_access_demo.c
 └── docs/
     └── concepts.md
 ```
@@ -34,21 +34,32 @@ In embedded programming, pointers are essential for:
 These examples are written in standard C (C99+) and can be compiled with any compliant compiler (gcc, clang, arm-none-eabi-gcc, etc.).
 
 ```bash
-# Compile a single example
-gcc -Wall -Wextra -std=c99 src/01_pointer_basics.c -o pointer_basics
-
-# Or use the provided Makefile (coming soon)
+# Build everything
 make
+
+# Run individual demos
+make run-basics
+make run-mmio
+make run-arith
+make run-func
+make run-vol
+
+# Or compile a single file manually
+gcc -Wall -Wextra -std=c99 src/01_pointer_basics.c -o pointer_basics
 ```
 
 ## Topics Covered
 
 1. Pointer declaration, initialization, and dereferencing
-2. Pointers to hardware registers (volatile)
+2. Pointers to hardware registers (`volatile`)
 3. Pointer arithmetic for buffers and arrays
 4. Function pointers for modular embedded code
-5. const correctness and safety in embedded contexts
+5. `const` correctness and safety in embedded contexts
 6. Common pitfalls (null pointers, dangling pointers, alignment)
+
+## Detailed Concepts
+
+See [docs/concepts.md](docs/concepts.md) for deeper explanations of volatile, structure overlays, and best practices.
 
 ## Target Audience
 
